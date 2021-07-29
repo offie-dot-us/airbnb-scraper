@@ -11,6 +11,7 @@ Regex matching, ranged search, open matched properties in a browser, save to CSV
 
 
 ## Installation (nix)
+brew install python@3.9
 
 ```bash
 # Create venv

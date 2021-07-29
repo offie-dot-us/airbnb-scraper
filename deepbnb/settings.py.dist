@@ -36,7 +36,7 @@ NEWSPIDER_MODULE = 'deepbnb.spiders'
 # }
 
 # Public development key (get this from the 'key' url parameter in async requests to /api/v2/explore_tabs)
-AIRBNB_API_KEY = ''
+AIRBNB_API_KEY = "d306zoyjsyarp7ifhu67rjxn52tv0t20"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'deepbnb (https://airbnb-scraper)'
