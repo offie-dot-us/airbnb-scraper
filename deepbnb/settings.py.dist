@@ -130,6 +130,7 @@ FEED_EXPORT_FIELDS = [
     'response_rate',
     'response_time',
     'photos',
+    'reviews',
 ]
 
 # Minimum monthly discount percent
