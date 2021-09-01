@@ -12,7 +12,7 @@ ARG OUT="Minneapolis.csv"
 #############################################################
 COPY ./deepbnb/ /app/deepbnb
 COPY ./requirements.txt /app
-COPY scrapy.cfg /app
+COPY ./scrapy.cfg /app
 
 #############################################################
 # Install dependencies
@@ -28,10 +28,30 @@ RUN cd /app && pip install -r requirements.txt \
 
 #############################################################
 # Entry Point 
-#############################################################
 WORKDIR /app
 
-ENTRYPOINT [ scrapy crawl airbnb -a query=${QUERY} -o ${OUT} ]
+ENV QUERY=${QUERY}
+ENV OUT=${OUT}
+
+# Create venv
+# RUN python -m venv env
+
+# Install required packages
+# RUN pip install -Ur requirements.txt
+
+# CMD "python3 scrapy -a query='${QUERY}' -o ${OUT}"
+
+ENV SPIDER_NAME=deepbnb
+ENV CRAWLER_FOLDER=/app
+ENV USER=deepbnb
+ENV SPIDER_NAME=airbnb
+
+COPY init.sh /init.sh
+ENTRYPOINT [ "/init.sh" ]
+#############################################################
+
+
+#ENTRYPOINT [ scrapy crawl airbnb -a query=${QUERY} -o ${OUT} ]
 
 #############################################################
 # Command with build args injected
